@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .clock{
+            display: flex;
+            margin: 0 auto;
+            justify-content: center;
+         }
+         .dat{
+            display: flex;
+           flex-direction: column;
+            justify-content: center;
+            width: 50px;
+             height: 50px;
+             background-color: #d9d4b3;
+             text-align: center;
+             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+             font-weight: 900;
+             font-size: 20px;
+            
+         }
+        .hour{
+             color: #e81f37;
+         }
+         .minutes{
+             color: #1611e5;  
+         }
+         .second{
+           color: #5f366e;
+           margin-right: 0;
+         }
+         .colon{
+            text-align: center;
+            display: flex;
+           flex-direction: column;
+            justify-content: center;
+             width: 10px;
+         }
+    </style>
+</head>
+<body>
+    <div id="clock" class="clock">
+        <div class="dat hour">
+        </div>
+        <div class="colon">:</div>
+        <div class="dat minutes">
+        </div>
+        <div class="colon">:</div>
+        <div class="dat second">
+        </div>
+    </div>
+    <script>
+        
+        function loctime(){
+        let datas = clock.querySelectorAll('div');
+        let time = new Date();
+        let h = time.getHours();
+        datas[0].innerHTML=h;
+        let m = time.getMinutes();
+        if (m<10){
+            m='0'+m
+        }
+        datas[2].innerHTML=m;
+        let s = time.getSeconds();
+        if (s<10){
+            s='0'+s
+        }
+        datas[4].innerHTML=s;
+        // var nowTime =  h+':'+m+':'+s;
+        // clock.innerHTML = nowTime;
+        }
+        setInterval(loctime, 1000);
+         
+    </script>
+</body>
+</html>
